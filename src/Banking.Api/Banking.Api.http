@@ -1,0 +1,39 @@
+@host = http://localhost:5080
+
+### 1. Crear cliente
+POST {{host}}/api/customers
+Content-Type: application/json
+
+{
+  "fullName": "María Fernanda López",
+  "dateOfBirth": "1990-05-20",
+  "gender": "Female",
+  "monthlyIncome": 2500.50
+}
+
+### 2. Crear cuenta (reemplaza el customerId por el obtenido arriba)
+POST {{host}}/api/accounts
+Content-Type: application/json
+
+{
+  "customerId": "00000000-0000-0000-0000-000000000000",
+  "initialBalance": 100.00
+}
+
+### 3. Consultar saldo (reemplaza el número de cuenta)
+GET {{host}}/api/accounts/ACC-20260101-0000/balance
+
+### 4. Depósito
+POST {{host}}/api/accounts/ACC-20260101-0000/deposits
+Content-Type: application/json
+
+{ "amount": 50.00 }
+
+### 5. Retiro
+POST {{host}}/api/accounts/ACC-20260101-0000/withdrawals
+Content-Type: application/json
+
+{ "amount": 30.00 }
+
+### 6. Historial
+GET {{host}}/api/accounts/ACC-20260101-0000/transactions
