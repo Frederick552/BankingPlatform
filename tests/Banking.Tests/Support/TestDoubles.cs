@@ -3,7 +3,6 @@ using Banking.Domain.Entities;
 
 namespace Banking.Tests.Support;
 
-/// <summary>Reloj controlable para pruebas deterministas.</summary>
 internal sealed class FakeTimeProvider(DateTimeOffset start) : TimeProvider
 {
     private DateTimeOffset _now = start;
@@ -13,7 +12,6 @@ internal sealed class FakeTimeProvider(DateTimeOffset start) : TimeProvider
     public void Advance(TimeSpan delta) => _now += delta;
 }
 
-/// <summary>Implementación en memoria de los repositorios y la unidad de trabajo.</summary>
 internal sealed class InMemoryStore :
     ICustomerRepository, IAccountRepository, IAccountTransactionRepository, IUnitOfWork
 {
@@ -65,7 +63,6 @@ internal sealed class InMemoryStore :
     }
 }
 
-/// <summary>Generador que devuelve una lista fija de números, para probar colisiones.</summary>
 internal sealed class StubAccountNumberGenerator(params string[] numbers) : IAccountNumberGenerator
 {
     private int _index;

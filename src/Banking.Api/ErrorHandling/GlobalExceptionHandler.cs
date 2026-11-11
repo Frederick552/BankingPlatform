@@ -4,10 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Banking.Api.ErrorHandling;
 
-/// <summary>
-/// Único lugar donde las excepciones se traducen a respuestas HTTP (RFC 7807 - problem+json).
-/// Los controladores no necesitan try/catch.
-/// </summary>
 public sealed class GlobalExceptionHandler(ILogger<GlobalExceptionHandler> logger) : IExceptionHandler
 {
     public async ValueTask<bool> TryHandleAsync(
@@ -40,8 +36,6 @@ public sealed class GlobalExceptionHandler(ILogger<GlobalExceptionHandler> logge
         return true;
     }
 
-    // Los mensajes de las excepciones de negocio son seguros para el cliente;
-    // para cualquier otra excepción nunca se expone su contenido.
     private static (int Status, string Title, string Detail) Map(Exception exception) => exception switch
     {
         NotFoundException e =>

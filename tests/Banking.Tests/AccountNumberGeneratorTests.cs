@@ -16,7 +16,7 @@ public class AccountNumberGeneratorTests
     {
         var number = CreateGenerator().Generate();
 
-        Assert.Equal(17, number.Length); // "ACC-" + 8 + "-" + 4
+        Assert.Equal(17, number.Length); 
     }
 
     [Fact]

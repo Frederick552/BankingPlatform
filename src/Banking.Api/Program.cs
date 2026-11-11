@@ -36,5 +36,4 @@ app.MapControllers();
 
 app.Run();
 
-// Necesario para que los tests de integración (WebApplicationFactory<Program>) puedan referenciar el punto de entrada.
 public partial class Program { }

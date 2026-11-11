@@ -8,7 +8,6 @@ namespace Banking.Api.Controllers;
 [Route("api/customers")]
 public sealed class CustomersController(ICustomerService customerService) : ControllerBase
 {
-    /// <summary>Crea el perfil de un cliente.</summary>
     [HttpPost]
     [ProducesResponseType<CustomerDto>(StatusCodes.Status201Created)]
     [ProducesResponseType<ProblemDetails>(StatusCodes.Status400BadRequest)]
